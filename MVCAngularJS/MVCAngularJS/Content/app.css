@@ -1,0 +1,97 @@
+﻿body {
+    padding-top: 65px;
+}
+
+.clear-floats {
+    clear:both;
+}
+
+.navbar-inverse {
+    background-color: #031b42;
+}
+
+
+/*https://codepen.io/bookcasey/pen/cEntL*/
+
+.cart-nav-buttons li {
+    width: 3em;
+    height: 3em;
+    text-align: center;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 3em;
+    margin: 0 1em;
+    display: inline-block;
+    position: relative;
+    background: #031b42;
+    border-radius: 50%;
+}
+
+.cart-nav-buttons li a {
+    width: 3em;
+    height: 3em;
+    text-align: center;
+    text-decoration: none;
+    line-height: 3em;
+    border-radius: 50%;
+    display: inline-block;
+    color: white;
+    position: relative;
+}
+
+.cart-nav-buttons li::before {
+    content: '';
+    position: absolute;
+    top: 1.5em;
+    left: -2em;
+    width: 2em;
+    height: .1em;
+    background: #031b42;
+    z-index: -1;
+}
+        
+.cart-nav-buttons li:first-child::before {
+    display: none;
+}
+
+.cart-nav-buttons-active {
+    background: #f75402;
+}
+
+
+.cart-nav-title {
+    font-size: 15px;
+    font-weight: 100;
+    color: #031b42;
+    width: 120px;
+    margin-left: -15px;
+    margin-top: -22px;
+}
+
+
+/*type-ahead*/
+.type-ahead .custom-popup-wrapper {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    background-color: #f9f9f9;
+  }
+
+  .type-ahead .custom-popup-wrapper > .message {
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+    color: #868686;
+  }
+
+  .type-ahead .custom-popup-wrapper > .dropdown-menu {
+    position: static;
+    float: none;
+    display: block;
+    min-width: 160px;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }

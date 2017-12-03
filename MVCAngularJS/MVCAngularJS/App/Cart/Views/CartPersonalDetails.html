@@ -1,0 +1,32 @@
+﻿<h1>Personal Details</h1>
+<p>{{theMessage}}</p>
+
+<div class="container">
+    <div class="row">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <select id="title" ng-model="personalDetails.title" class="form-control">
+                <option ng-repeat="title in titlesData" value="{{title}}">{{title}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input id="firstName" type="text" ng-model="personalDetails.firstName" class="form-control" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input id="lastName" type="text" ng-model="personalDetails.lastName" class="form-control" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <label for="dateOfBirth">Date of Birth</label>
+            <input id="dateOfBirth" type="text" ng-model="personalDetails.dateOfBirth" class="form-control" />
+        </div>
+    </div>
+
+</div>

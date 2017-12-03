@@ -1,0 +1,60 @@
+﻿<h1>Address Details</h1>
+<p>{{theMessage}}</p>
+
+
+<div class="container">
+    <div class="row type-ahead">
+        <label for="addressSearch">Address Search</label>
+        <input id="addressSearch" type="text" ng-model="asyncSelected" ng-model-options="{'debounce': 500}" placeholder="Type and address to search for..." 
+               uib-typeahead="addr.formattedAddress for addr in searchForAddress($viewValue)" typeahead-loading="loadingAddresses" typeahead-no-results="noResults" 
+               typeahead-editable="false" typeahead-on-select="onSelect($item, $model, $label)"
+               class="form-control">
+        <i ng-show="loadingAddresses" class="glyphicon glyphicon-refresh"></i>
+        <div ng-show="noResults">
+            <i class="glyphicon glyphicon-remove"></i> No Results Found
+        </div>
+    </div>
+    <div class="row">
+
+    </div>
+
+    <div class="row">
+        <div class="form-group">
+            <label for="addressLine1">Address 1</label>
+            <input id="addressLine1" type="text" ng-model="address.addressLine1" class="form-control" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <label for="addressLine2">Address 2</label>
+            <input id="addressLine2" type="text" ng-model="address.addressLine2" class="form-control" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <label for="addressLine3">Address 3</label>
+            <input id="addressLine3" type="text" ng-model="address.addressLine3" class="form-control" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="location">Location</label>
+                <input id="location" type="text" ng-model="address.location" class="form-control" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="addressState">State</label>
+                <select id="addressState" ng-model="address.state" class="form-control">
+                    <option ng-repeat="state in addressStatesData" value="{{state}}">{{state}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label for="postcode">Postcode</label>
+            <input id="postcode" type="text" ng-model="address.postcode" class="form-control" />
+        </div>
+
+    </div>
+</div>
