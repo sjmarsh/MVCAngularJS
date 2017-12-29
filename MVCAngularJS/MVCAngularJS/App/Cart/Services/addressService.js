@@ -3,7 +3,7 @@
   var baseUrl = 'http://localhost:57847/api/address/';
 
   this.search = function (searchTerm) {
-    return $http.get(baseUrl + searchTerm);
+    return $http.get(baseUrl + 'search/' + searchTerm);
   };
 
   this.get = function (addressId) {

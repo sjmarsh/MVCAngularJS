@@ -1,10 +1,6 @@
 ﻿using MVCAngularJS.Models;
-using MVCAngularJS.Services;
-using System;
+using MVCAngularJS.Services.AddressService;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace MVCAngularJS.Controllers
@@ -19,14 +15,14 @@ namespace MVCAngularJS.Controllers
             _addressService = addressService;
         }
 
-        [Route("{id:int}")]
-        public Address Get(int id)
+        [Route("{id}")]
+        public Address Get(string id)
         {
             return _addressService.Get(id);
         }
 
         [HttpGet()]
-        [Route("{searchTerm}")]
+        [Route("search/{searchTerm}")]
         public List<Address> Search(string searchTerm)
         {
             return _addressService.Search(searchTerm);            

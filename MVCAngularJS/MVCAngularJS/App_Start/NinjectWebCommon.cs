@@ -12,6 +12,7 @@ namespace MVCAngularJS.App_Start
     using Ninject.Web.Common;
     using Services;
     using Ninject.Web.Common.WebHost;
+    using Services.AddressService;
 
     // getting ninject to work with MVC5 + WebApi 2
     // https://github.com/SkydivingAngel/Ninject-WebApi-2-and-Mvc5
@@ -50,7 +51,8 @@ namespace MVCAngularJS.App_Start
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
-                kernel.Bind<IAddressService>().To<FakeAddressService>();
+                //kernel.Bind<IAddressService>().To<FakeAddressService>();
+                kernel.Bind<IAddressService>().To<GoogleAddressService>();
 
                 RegisterServices(kernel);
                 return kernel;
