@@ -46,7 +46,10 @@
       
       $scope.theMessage = "getting address";
 
-      var storedAddress = $scope.addressSearchResult.find(a => a.AddressId === addressId);
+      //var storedAddress = $scope.addressSearchResult.find(a => a.AddressId === addressId); // arrow functions not supported in IE11
+      var storedAddress = $scope.addressSearchResult.find(function (a) {
+          return a.addressId === addressId;
+      });
 
       if (storedAddress) {
         $scope.address.addressLine1 = storedAddress.line1;

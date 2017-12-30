@@ -25,6 +25,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -158,6 +159,7 @@
     <Content Include="App\Cart\Views\CartPersonalDetails.html" />
     <Content Include="App\Cart\Views\CartAddressDetails.html" />
     <Content Include="App\Cart\Views\CartPurchaseDetails.html" />
+    <Content Include="App\polyfills.js" />
     <Content Include="App\validator.js" />
     <Content Include="Content\app.css" />
     <Content Include="Content\bootstrap-theme.css" />
