@@ -19,6 +19,19 @@ cartModule.factory('cartService', function ($rootScope, $http, $q, $location, vi
         var self = this;
 
         self.cartId = 0;
+        self.cartState = {
+          personalDetails: {},
+          addressDetails: {},
+          purchaseDetails: {}
+        };
+
+        self.storeCartState = function (modelState) {
+          self.cartState = modelState;
+        }
+
+        self.getCartState = function () {
+          return self.cartState;
+        }
 
         return this;
     };

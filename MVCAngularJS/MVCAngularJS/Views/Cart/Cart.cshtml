@@ -43,7 +43,11 @@
 
         <div ng-view></div>
         
-        
+        <div class="cart-nav-footer">
+            <button  class="btn btn-primary" ng-click="goToPrevious()" ng-disabled="!canGoPrevious()">Previous</button>
+            <button class="btn btn-primary" ng-click="goToNext()" ng-disabled="!canGoNext()">Next</button>
+        </div>
+
     </div>
 </div>
 

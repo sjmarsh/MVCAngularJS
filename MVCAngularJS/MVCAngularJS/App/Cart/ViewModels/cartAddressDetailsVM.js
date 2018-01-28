@@ -2,6 +2,7 @@
 
     $scope.viewModelHelper = viewModelHelper;
     $scope.cartService = cartService;
+    $scope.cartState = {};
   
     $scope.address = {
         addressLine1: "",
@@ -18,6 +19,9 @@
         $scope.theMessage = "address details vm is working";
         $scope.addressStatesData = addressStates;
         $scope.address.state = $scope.addressStatesData[0];
+
+        $scope.cartState = cartService.getCartState();
+        $scope.address = $scope.cartState.addressDetails;
     }
 
   //http://angular-ui.github.io/bootstrap/versioned-docs/1.3.3/
@@ -75,6 +79,12 @@
         });
       }
     }
+
+    $scope.$on("$destroy", function () {
+      // maintain state between pages
+      $scope.cartState.addressDetails = $scope.address;
+      cartService.storeCartState($scope.cartState);
+    });
 
     initialize();
 }]);

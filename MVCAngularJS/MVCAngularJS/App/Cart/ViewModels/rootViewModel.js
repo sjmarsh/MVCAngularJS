@@ -8,13 +8,11 @@
     $scope.cartService = cartService;
     
     $scope.menuItems = [
-        { title: 'Personal Details', position: 1, isActive: true, action: function () { return $scope.personalDetails() } },
-        { title: 'Address Details', position: 2, isActive: false, action: function () { return $scope.addressDetails() } },
-        { title: 'Purchase Details', position: 3, isActive: false, action: function () { return $scope.purchaseDetails() } },
+        { title: 'Personal Details', position: 1, isActive: true, action: function () { return $scope.personalDetails() }, path: 'cart/personal-details' },
+        { title: 'Address Details', position: 2, isActive: false, action: function () { return $scope.addressDetails() }, path: 'cart/address-details' },
+        { title: 'Purchase Details', position: 3, isActive: false, action: function () { return $scope.purchaseDetails() }, path: 'cart/purchase-details' },
     ]
-
-    //$scope.flags = { shownFromList: false };
-
+      
     var initialize = function () {
         $scope.pageHeading = "Shopping Cart";
     }
@@ -26,7 +24,7 @@
         $scope.menuItems[1].isActive = false;
         $scope.menuItems[2].isActive = false;
 
-        viewModelHelper.navigateTo('cart/personal-details');
+        viewModelHelper.navigateTo($scope.menuItems[0].path);
     }
 
     $scope.addressDetails = function () {
@@ -36,7 +34,7 @@
         $scope.menuItems[1].isActive = true;
         $scope.menuItems[2].isActive = false;
 
-        viewModelHelper.navigateTo('cart/address-details');
+        viewModelHelper.navigateTo($scope.menuItems[1].path);
     }
 
     $scope.purchaseDetails = function () {
@@ -47,16 +45,46 @@
         $scope.menuItems[1].isActive = false;
         $scope.menuItems[2].isActive = true;
 
-        viewModelHelper.navigateTo('cart/purchase-details');
+        viewModelHelper.navigateTo($scope.menuItems[2].path);
     }
 
-    /*
-    $scope.showProduct = function () {
-        if (productService.productId != 0) {
-            $scope.flags.shownFromList = false;
-            viewModelHelper.navigateTo('product/show/' + productService.productId);
-        }
+    function navigateTo(index) {
+      var menuItemToNavigateTo = $scope.menuItems.find(function (item) { return item.position == index; });
+      setAllItemsToInactive();
+      menuItemToNavigateTo.isActive = true;
+
+      viewModelHelper.navigateTo(menuItemToNavigateTo.path);
     }
-    */
+    
+    function setAllItemsToInactive() {
+      $scope.menuItems.forEach(function (item) {
+        item.isActive = false;
+      });
+    }
+
+    function activeMenuItem() {
+      return $scope.menuItems.find(function (item) { return item.isActive == true; });
+    }
+
+    $scope.goToNext = function () {
+      var activeMenu = activeMenuItem();
+      navigateTo(activeMenu.position + 1);
+    }
+
+    $scope.canGoNext = function () {
+      var activeMenu = activeMenuItem();
+      return activeMenu.position !== $scope.menuItems.length;
+    }
+
+    $scope.goToPrevious = function () {
+      var activeMenu = activeMenuItem();
+      navigateTo(activeMenu.position - 1);
+    }
+    
+    $scope.canGoPrevious = function () {
+      var activeMenu = activeMenuItem();
+      return activeMenu.position !== 1;
+    }
+
     initialize();
 });
