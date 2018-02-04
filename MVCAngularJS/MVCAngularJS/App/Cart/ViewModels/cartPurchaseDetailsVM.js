@@ -6,7 +6,8 @@
 
     var initialize = function () {
         $scope.theMessage = "purchase details vm is working";
-    }
+   }
+
 
     initialize();
 });

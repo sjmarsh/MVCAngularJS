@@ -86,5 +86,15 @@
       return activeMenu.position !== 1;
     }
 
+    $scope.isLastPage = function () {
+        var activeMenu = activeMenuItem();
+        return activeMenu.position === $scope.menuItems.length;
+    }
+
+
+    $scope.submit = function () {
+        alert('Order Complete!');
+    }
+
     initialize();
 });
