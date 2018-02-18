@@ -93,7 +93,14 @@
 
 
     $scope.submit = function () {
-        alert('Order Complete!');
+        cartService.submitCart().then(
+            function success(result) {
+                alert('cart submitted sucessfully. ID = ' + result.data);
+            },
+            function fail(error) {
+                alert('cart failed to submit' + JSON.stringify(error));
+            }
+        );
     }
 
     initialize();

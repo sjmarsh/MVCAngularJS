@@ -152,6 +152,7 @@
     <Content Include="App\app.js" />
     <Content Include="App\Cart\app.js" />
     <Content Include="App\Cart\Services\addressService.js" />
+    <Content Include="App\Cart\Services\cartService.js" />
     <Content Include="App\Cart\ViewModels\cartPersonalDetailsVM.js" />
     <Content Include="App\Cart\ViewModels\cartAddressDetailsVM.js" />
     <Content Include="App\Cart\ViewModels\cartPurchaseDetailsVM.js" />
@@ -206,7 +207,8 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\AddressController.cs" />
+    <Compile Include="Controllers\AddressAPIController.cs" />
+    <Compile Include="Controllers\CartAPIController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SettingsController.cs" />
@@ -215,7 +217,9 @@
     </Compile>
     <Compile Include="Helpers\HTMLHelpers.cs" />
     <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Enums.cs" />
+    <Compile Include="Models\PersonDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AddressService\GoogleGeocodeResponse.cs" />
     <Compile Include="Services\AddressService\FakeAddressService.cs" />

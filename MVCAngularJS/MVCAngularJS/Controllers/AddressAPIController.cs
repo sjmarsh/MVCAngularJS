@@ -6,11 +6,11 @@ using System.Web.Http;
 namespace MVCAngularJS.Controllers
 {
     [RoutePrefix("api/address")]
-    public class AddressController : ApiController
+    public class AddressAPIController : ApiController
     {
         private IAddressService _addressService;
 
-        public AddressController(IAddressService addressService)
+        public AddressAPIController(IAddressService addressService)
         {
             _addressService = addressService;
         }
