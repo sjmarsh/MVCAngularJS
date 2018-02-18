@@ -5,7 +5,8 @@ namespace MVCAngularJS.Services.AddressService
 {
     public interface IAddressService
     {
-        Address Get(string addressId);
+        Address Get(int addressId);
+        Address GetByPlaceId(string placeId);
         List<Address> Search(string searchTerm);
     }
 }

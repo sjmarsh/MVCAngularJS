@@ -18,7 +18,7 @@ namespace MVCAngularJS.Controllers
         [Route("{id}")]
         public Address Get(string id)
         {
-            return _addressService.Get(id);
+            return _addressService.GetByPlaceId(id);
         }
 
         [HttpGet()]

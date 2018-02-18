@@ -9,23 +9,24 @@ namespace MVCAngularJS.Models
     {
         private string _formattedAddress;
 
-        public string Id { get; set; }
-        public string Line1 { get; set; }
-        public string Line2 { get; set; }
-        public string Line3 { get; set; }
-        public string Line4 { get; set; }
+        public int Id { get; set; }
+        public string AddressLine1 { get; set; }
+        public string AddressLine2 { get; set; }
+        public string AddressLine3 { get; set; }
+        public string AddressLine4 { get; set; }
         public string Location { get; set; }
         public string State { get; set; }
         public string Postcode { get; set; }
         public string Country { get; set; }
 
-        
+        public string PlaceId { get; set; }
+
         public string FormattedAddress
         {
             get
             {
                 //TODO: Handle null/empty better
-                return _formattedAddress ?? Line1 + " " + Line2 + " " + Line3 + " " + Line4 + " " + Location + " " + State + " " + Postcode;                
+                return _formattedAddress ?? AddressLine1 + " " + AddressLine2 + " " + AddressLine3 + " " + AddressLine4 + " " + Location + " " + State + " " + Postcode;                
             }
             set
             {
@@ -33,5 +34,6 @@ namespace MVCAngularJS.Models
             }
 
         }
+                
     }
 }

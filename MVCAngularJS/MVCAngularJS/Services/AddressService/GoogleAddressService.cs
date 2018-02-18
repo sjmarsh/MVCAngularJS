@@ -10,11 +10,16 @@ namespace MVCAngularJS.Services.AddressService
     {
         private const string BaseUrl = "https://maps.googleapis.com/maps/api/geocode/";
 
-        public Address Get(string addressId)
+        public Address Get(int addressId)
+        {
+            return new Address();
+        }
+
+        public Address GetByPlaceId(string placeId)
         {
             var key = ""; // TODO add to config
-            
-            var query = "json?key=" + key + "&place_id=" + addressId;
+
+            var query = "json?key=" + key + "&place_id=" + placeId;
 
             using (var client = new HttpClient())
             {
@@ -76,12 +81,12 @@ namespace MVCAngularJS.Services.AddressService
         {
             var address = new Address();
                         
-            address.Id = geocodeResult.place_id;
+            address.PlaceId = geocodeResult.place_id;
 
             // very basic mapping TODO: handle more complex address types
             var streetNum = GetAddressComponent(geocodeResult, "street_number");
             var streetName = GetAddressComponent(geocodeResult, "route");
-            address.Line1 = streetNum + " " + streetName;
+            address.AddressLine1 = streetNum + " " + streetName;
             address.Location = GetAddressComponent(geocodeResult, "locality");
             address.State = GetAddressComponent(geocodeResult, "administrative_area_level_1");
             address.Postcode = GetAddressComponent(geocodeResult, "postal_code");

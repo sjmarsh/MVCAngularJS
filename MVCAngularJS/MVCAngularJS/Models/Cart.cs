@@ -8,8 +8,8 @@ namespace MVCAngularJS.Models
     public class Cart
     {
         public int Id { get; set; }
-        public PersonDetails Customer { get; set; }
-        public Address Address { get; set; }
+        public PersonDetails PersonalDetails { get; set; }
+        public Address AddressDetails { get; set; }
 
 
     }
